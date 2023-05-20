@@ -19,9 +19,7 @@ use App\Http\Controllers\theme;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
 
 Auth::routes([
     'register' => false, // Registration Routes...
