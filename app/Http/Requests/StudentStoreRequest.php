@@ -24,7 +24,6 @@ class StudentStoreRequest extends FormRequest
         return [
             'name'=>'required|string|max:255',
             'number'=>'required|regex:/^01[0-2,5]\d{8}$/|unique:students,number',
-            'PersonalCode'=>'required|int|unique:students,PersonalCode',
             'password'=>'required|confirmed|min:8',
             'gender'=>'required|in:m,f',
             'status'=>'required|in:0,1',

@@ -43,9 +43,6 @@
                                     rowspan="1" colspan="1" style="width: 64px;"
                                     aria-label="Role: activate to sort column ascending">NationalID</th>
                                 <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                    rowspan="1" colspan="1" style="width: 74px;"
-                                    aria-label="User: activate to sort column ascending">PersonalCode</th>
-                                <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                     rowspan="1" colspan="1" style="width: 112px;"
                                     aria-label="Status: activate to sort column ascending">status</th>
                                 <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
@@ -65,7 +62,6 @@
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->number }}</td>
                                 <td>{{ $student->NationalID }}</td>
-                                <td>{{ $student->PersonalCode }}</td>
                                 <td>
                                     @switch($student->gender)
                                     @case('m')

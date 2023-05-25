@@ -46,14 +46,6 @@
                     </div>
                     <div class="col-lg-6" bis_skin_checked="1">
                         <div class="common_input mb_15" bis_skin_checked="1">
-                            <input value="{{ $student->PersonalCode }}" type="text" name="PersonalCode" placeholder="PersonalCode">
-                            @error('PersonalCode')
-                            <div class="text-danger font-weight-bold">*{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-lg-6" bis_skin_checked="1">
-                        <div class="common_input mb_15" bis_skin_checked="1">
                             <input class="@error('password') is-invalid @enderror" id="password" name="password"
                                 type="password" placeholder="Password">
                             @error('password')

@@ -37,7 +37,6 @@ class StudentsController extends Controller
             'number'=>$request->number,
             'password'=>Hash::make($request->password),
             'NationalID'=>$request->NationalID,
-            'PersonalCode'=>$request->PersonalCode,
             'gender'=>$request->gender,
             'status'=>$request->status
         ]);
@@ -66,8 +65,6 @@ class StudentsController extends Controller
                 'regex:/^01[0-2,5]\d{8}$/',
                 Rule::unique('students', 'number')->ignore($id),
             ],
-            'PersonalCode'=>['required','int',
-            Rule::unique('students','PersonalCode')->ignore($id)],
             'password'=>'nullable|confirmed|min:8',
             'gender'=>'required|in:m,f',
             'status'=>'required|in:0,1',
@@ -79,7 +76,6 @@ class StudentsController extends Controller
             'name'=>$request->name,
             'number'=>$request->number,
             'NationalID'=>$request->NationalID,
-            'PersonalCode'=>$request->PersonalCode,
             'gender'=>$request->gender,
             'status'=>$request->status
         ]);
