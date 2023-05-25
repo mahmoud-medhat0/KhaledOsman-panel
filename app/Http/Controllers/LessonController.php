@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Codes;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 use App\Models\Lessons;
 use Illuminate\Http\Request;
@@ -60,6 +61,7 @@ class LessonController extends Controller
     }
     public function destroy($id){
         $path = Lessons::FindOrFail($id);
+        Codes::where('lesson_id',$id)->delete();
         Storage::delete($path->path);
         $path->delete();
         return redirect()->back()->with('success','lesson deleted successful');
