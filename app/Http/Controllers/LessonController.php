@@ -76,6 +76,5 @@ class LessonController extends Controller
         $filePath = storage_path('app/private/uploads/' . $filename.'.mp4');
         $mimeType = Storage::mimeType('private/uploads/' . $filename.'.mp4');
         return response()->file($filePath, ['Content-Type' => $mimeType]);
-
     }
 }
