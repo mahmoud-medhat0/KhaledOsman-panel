@@ -47,10 +47,7 @@
                                     aria-label="User: activate to sort column ascending">PersonalCode</th>
                                 <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                     rowspan="1" colspan="1" style="width: 112px;"
-                                    aria-label="Status: activate to sort column ascending">verified</th>
-                                <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                    rowspan="1" colspan="1" style="width: 112px;"
-                                    aria-label="Status: activate to sort column ascending">verified</th>
+                                    aria-label="Status: activate to sort column ascending">status</th>
                                 <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
                                     rowspan="1" colspan="1" style="width: 64px;"
                                     aria-label="Role: activate to sort column ascending">status</th>
@@ -69,9 +66,6 @@
                                 <td>{{ $student->number }}</td>
                                 <td>{{ $student->NationalID }}</td>
                                 <td>{{ $student->PersonalCode }}</td>
-                                <td><span
-                                    class="{{ $student->verified == 1 ? 'status_btn' : 'status_btn yellow_btn' }}">{{ $student->verified == 1 ? 'active' : 'not verified' }}</span>
-                                </td>
                                 <td>
                                     @switch($student->gender)
                                     @case('m')

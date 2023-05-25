@@ -6,6 +6,7 @@ use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StudentStoreRequest;
+use Illuminate\Validation\Rule;
 
 class StudentsController extends Controller
 {
@@ -37,7 +38,6 @@ class StudentsController extends Controller
             'password'=>Hash::make($request->password),
             'NationalID'=>$request->NationalID,
             'PersonalCode'=>$request->PersonalCode,
-            'verified'=>$request->verified,
             'gender'=>$request->gender,
             'status'=>$request->status
         ]);
@@ -61,13 +61,18 @@ class StudentsController extends Controller
         $student = Students::FindOrFail($id);
         $rules = [
             'name'=>'required|string|max:255',
-            'number'=>'required|regex:/^01[0-2,5]\d{8}$/|unique:students,number,except,$id',
-            'PersonalCode'=>'required|int|unique:students,PersonalCode,except,$id',
-            'password'=>'required|confirmed|min:8',
+            'number' => [
+                'required',
+                'regex:/^01[0-2,5]\d{8}$/',
+                Rule::unique('students', 'number')->ignore($id),
+            ],
+            'PersonalCode'=>['required','int',
+            Rule::unique('students','PersonalCode')->ignore($id)],
+            'password'=>'nullable|confirmed|min:8',
             'gender'=>'required|in:m,f',
-            'verified'=>'required|in:0,1',
             'status'=>'required|in:0,1',
-            'NationalID'=>'required|min:15|max:17|integer|unique:students,NationalID,except,$id'
+            'NationalID'=>['required','min:15','integer',
+            Rule::unique('students','NationalID')->ignore($id)],
         ];
         $request->validate($rules);
         $student->update([
@@ -75,7 +80,6 @@ class StudentsController extends Controller
             'number'=>$request->number,
             'NationalID'=>$request->NationalID,
             'PersonalCode'=>$request->PersonalCode,
-            'verified'=>$request->verified,
             'gender'=>$request->gender,
             'status'=>$request->status
         ]);

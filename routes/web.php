@@ -58,6 +58,7 @@ Route::controller(CodesController::class)->group(function(){
     Route::get('codes/all','index')->name('codes.index');
     Route::get('codes/create','create')->name('codes.create');
     Route::post('code/store','store')->name('codes.store');
+    Route::delete('code/destroy/{id}','destroy')->name('codes.destroy');
 });
 Route::controller(theme::class)->group(function (){
     Route::get('theme/dark','setdark')->name('themedark');

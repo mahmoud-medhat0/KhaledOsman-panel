@@ -16,6 +16,7 @@
             {{ $success }}
             @endisset
             <form action="{{ route('student.update',$student->id) }}" method="post">
+                @method('put')
                 @csrf
                 <div class="row" bis_skin_checked="1">
                     <div class="col-lg-6" bis_skin_checked="1">
@@ -83,19 +84,6 @@
                                 </option>
                             </select>
                             @error('gender')
-                            <div class="text-danger font-weight-bold">*{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-lg-6" bis_skin_checked="1">
-                        <div class="" tabindex="0" bis_skin_checked="1">
-                            <select name="verified" id="status" class="form-control">
-                                <option @selected($student->verified =='1') value="1"> Active
-                                </option>
-                                <option @selected($student->verified =='') value="0"> Not Active
-                                </option>
-                            </select>
-                            @error('verified')
                             <div class="text-danger font-weight-bold">*{{ $message }}</div>
                             @enderror
                         </div>

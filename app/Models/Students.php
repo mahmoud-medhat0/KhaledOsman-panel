@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Students extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','number','password','NationalID','PersonalCode','gender','status','verified'];
+    protected $fillable = ['name','number','password','NationalID','PersonalCode','gender','status'];
     public function codes()
     {
         return $this->hasMany(Codes::class, 'student_id');

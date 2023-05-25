@@ -76,10 +76,7 @@
                                 <td>{{ $code->updated_at }}</td>
                                 <td>
                                     <div class="action_btns d-flex" bis_skin_checked="1">
-                                        <form action="{{ route('student.edit',$code->id) }}" method="get">
-                                            <button class="action_btn"><i class="far fa-edit"></i></button>
-                                        </form>
-                                        <form action="{{ route('student.destroy',$code->id) }}" method="post">
+                                        <form action="{{ route('codes.destroy',$code->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="action_btn"><i class="fas fa-trash"></i></button>

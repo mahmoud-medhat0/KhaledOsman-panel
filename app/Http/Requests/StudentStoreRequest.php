@@ -27,7 +27,6 @@ class StudentStoreRequest extends FormRequest
             'PersonalCode'=>'required|int|unique:students,PersonalCode',
             'password'=>'required|confirmed|min:8',
             'gender'=>'required|in:m,f',
-            'verified'=>'required|in:0,1',
             'status'=>'required|in:0,1',
             'NationalID'=>'required|integer|min:15|unique:students,NationalID'
         ];

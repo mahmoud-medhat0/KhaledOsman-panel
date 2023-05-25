@@ -78,8 +78,9 @@ class CodesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Codes $codes)
+    public function destroy($id)
     {
-        //
+        Codes::where('id',$id)->delete();
+        return redirect()->back()->with('success','code deleted successfully');
     }
 }

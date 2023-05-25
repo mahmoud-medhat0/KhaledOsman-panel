@@ -200,7 +200,7 @@
                 <div class="row" bis_skin_checked="1">
                     <div class="col-lg-12" bis_skin_checked="1">
                         <div class="footer_iner text-center" bis_skin_checked="1">
-                            <p>2020 © Influence - Designed by
+                            <p>{{ date('Y') }} © Influence - Designed by
                                 <a href="https://www.fb.com/7akemel3alam"> Mahmoud Medhat</a>
                             </p>
                         </div>
